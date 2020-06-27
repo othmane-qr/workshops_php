@@ -1,6 +1,8 @@
 <?php
 
 include 'database.php';
+$sql = "SELECT * FROM shouts";
+$result = mysqli_query($conn, $sql);
 
 ?>
 
@@ -21,8 +23,7 @@ include 'database.php';
 			<li class="shout"><span>10:15PM - </span>Brad: Hey what are you guys up to? </li>
 			<li class="shout"><span>10:15PM - </span>Brad: Hey what are you guys up to? </li>
 			  <?php
-			  	$sql = "SELECT id,user,message,time FROM shouts";
-				$result = mysqli_query($conn, $sql);
+			  
 			   while ($row = mysqli_fetch_assoc($result)) : ?>
               <li class="shout"><span><?php echo $row['time']; ?> --- </span><strong><?php echo $row['user']; ?>:</strong> <?php echo $row['message']; ?> </li>
              <?php endwhile; ?> </ul>`
